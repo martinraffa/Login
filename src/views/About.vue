@@ -1,5 +1,23 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+<div class="caja">
+
+</div>
+
 </template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang="less" scoped>
+
+  .caja{
+    height: 200px;
+    width: 200px;
+    background: white;
+  }
+
+
+</style>
