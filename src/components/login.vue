@@ -13,6 +13,7 @@
             v-model="username"
             :rules="[() => !!username || 'Este campo es requerido']"
             label="Correo electronico"
+            color="#2B4E86"
             placeholder="Correo electronico"
             outlined
             ></v-text-field>
@@ -25,6 +26,7 @@
             :type="show1 ? 'text' : 'password'"
             name="input-10-1"
             label="Contraseña"
+            color="#2B4E86"
             placeholder="Contraseña"
             hint="Al menos 8 caracteres"
             outlined
@@ -33,15 +35,12 @@
         </div>
         <div class="botones">
             <div class="record">
-            
                 <v-radio color="#2B4E86" v-model="checkbox" label="Recordar Usuario"></v-radio>
-            
             </div>
             <div class="btn-seguir">
                 <v-btn rounded color="#2B4E86" dark type="submit" class="btn-submit">Siguiente</v-btn>
             </div>
         </div>
-
     </form>
     <v-footer       
     absolute
@@ -106,9 +105,6 @@ data() {
     },
 };
 
-
-
-
 </script>
 
 <style lang="less" scoped>
@@ -116,7 +112,6 @@ data() {
 .viewer{
     display: grid;
     grid-template-rows: 35% 35% 30%;
-    
     width: 30%;
     padding-top: 14%;
     padding-left: 100px;
