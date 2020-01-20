@@ -12,17 +12,17 @@
         </div>
         <div class="btn-salir">
             <router-link to="/login">
-            <v-btn class="ma-2" outlined color="primary" >Sign Out</v-btn>
+            <v-btn class="ma-2" outlined color="primary" >Salir</v-btn>
             </router-link>
         </div>
     </div>
     <div class="caja">
         <v-tabs>
             <v-tab name="create">
-                Create Users
+                Crear Usuario
             </v-tab>
             <v-tab name="list">
-                List of Users
+                Lista de Usuarios
             </v-tab>
 
 
@@ -33,7 +33,7 @@
             </v-tab-item>
             <v-tab-item key="list">
                 <v-card>
-                    <list :user="user = $event "/>
+                    <list :user="user"/>
                 </v-card>
             </v-tab-item>
     
@@ -61,7 +61,7 @@ import list from './list.vue';
 export default {
     data(){
         return{
-            user:'',
+            
         }
     },
     components: {

@@ -6,7 +6,7 @@
           <div>
             <form name="formulario" @submit.prevent="handleSubmit">
               <div class="form-group">
-                <label for="firstName">First Name</label>
+                <label for="firstName">Primer Nombre</label>
                 <input
                   type="text"
                   v-model="user.firstName"
@@ -18,10 +18,10 @@
                 <div
                   v-if="submitted && !$v.user.firstName.required"
                   class="invalid-feedback"
-                >First Name is required</div>
+                >Primer Nombre es requerido</div>
               </div>
               <div class="form-group">
-                <label for="lastName">Last Name</label>
+                <label for="lastName">Apellido</label>
                 <input
                   type="text"
                   v-model="user.lastName"
@@ -33,7 +33,7 @@
                 <div
                   v-if="submitted && !$v.user.lastName.required"
                   class="invalid-feedback"
-                >Last Name is required</div>
+                >Apellido es requerido</div>
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
@@ -65,7 +65,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Contraseña</label>
                 <input
                   type="password"
                   v-model="user.password"
@@ -75,12 +75,12 @@
                   :class="{ 'is-invalid': submitted && $v.user.password.$error }"
                 />
                 <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
-                  <span v-if="!$v.user.password.required">Password is required</span>
-                  <span v-if="!$v.user.password.minLength">Password must be at least 6 characters</span>
+                  <span v-if="!$v.user.password.required">La contraseña es requerida</span>
+                  <span v-if="!$v.user.password.minLength">La contraseña tiene que ser de 6 caracteres</span>
                 </div>
               </div>
               <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
+                <label for="confirmPassword">Repetir Contraseña</label>
                 <input
                   type="password"
                   v-model="user.confirmPassword"
@@ -95,10 +95,10 @@
                 </div>
               </div>
               <div class="form-group">
-                <button class="btn btn-primary">Register</button>
+                <button class="btn btn-primary">Registrar</button>
               </div>
               <div class="form-group">
-                <v-btn v-on:click="resetForm">Click to reset</v-btn>
+                <v-btn v-on:click="resetForm">Reiniciar</v-btn>
               </div>
             </form>
           </div>
@@ -139,6 +139,7 @@ export default {
     }
   },
   methods: {
+    
     resetForm: function(i) {
       i.preventDefault();
       this.$data.user.email = "";

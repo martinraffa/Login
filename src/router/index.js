@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import login from '../components/login.vue'
 import account from '../components/account.vue'
-import axios from '../components/axios.vue'
+
 
 Vue.use(VueRouter)
 
@@ -28,12 +28,7 @@ const routes = [
         next()
     }
   },
-  {
-    path: '/axios',
-    name: 'axios',
-    component: axios,
-  
-  }
+
 ]
 
 const router = new VueRouter({

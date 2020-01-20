@@ -9,6 +9,7 @@ export default new Vuex.Store({
     token: sessionStorage.getItem('acces_token') || null ,
     username: '',
     password: '',
+    error: '',
   },
   getters: {
     loggedIn(state) {
@@ -24,8 +25,7 @@ export default new Vuex.Store({
 
   retriveToken(context, credentials) {
 
-    return new Promise((resolve, reject)=> { 
-      axios.post('https://reqres.in/api/login', {
+      return axios.post('https://reqres.in/api/login', {
           username: credentials.username,
           password: credentials.password,
       })
@@ -34,14 +34,15 @@ export default new Vuex.Store({
         sessionStorage.setItem('acces_token', token)
         context.commit('retriveToken', token)
         console.log('response ok');
-        resolve(response)
         //console.log("token", response)
+        return response
       })
       .catch(error => {
-        console.log("error")
-        reject(error)
+        
+        this.$vToastify.error(error)
+        console.log("error gato", error)
+        return error
       })
-    })
   },
 
   },

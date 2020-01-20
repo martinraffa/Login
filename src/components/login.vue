@@ -34,11 +34,11 @@
         <div class="botones">
             <div class="record">
             
-                <v-radio color="#2B4E86" v-model="checkbox" label="I'm a radio button"></v-radio>
+                <v-radio color="#2B4E86" v-model="checkbox" label="Recordar Usuario"></v-radio>
             
             </div>
             <div class="btn-seguir">
-                <v-btn rounded color="#2B4E86" dark type="submit" class="btn-submit">login</v-btn>
+                <v-btn rounded color="#2B4E86" dark type="submit" class="btn-submit">Siguiente</v-btn>
             </div>
         </div>
 
@@ -68,8 +68,8 @@ data() {
     loading: true,
     errored: false,
     show1: false,
-    username: 'eve.holt@reqres.in',
-    password: 'cityslicka',
+    username: '',
+    password: '',
     checkbox: '',
     rules: {
         required: value => !!value || "Requerido.",
@@ -118,7 +118,7 @@ data() {
     grid-template-rows: 35% 35% 30%;
     
     width: 30%;
-    padding-top: 80px;
+    padding-top: 14%;
     padding-left: 100px;
 }
 

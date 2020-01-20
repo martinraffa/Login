@@ -104,7 +104,7 @@ methods: {
       
     this.desserts = [
         {
-            firstName: $store.state.user.firstName,
+            firstName: "martin",
             lastName:"" ,
             email:"" ,
             Avatar:"" ,
