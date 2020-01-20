@@ -3,14 +3,18 @@ import VueRouter from 'vue-router'
 
 import login from '../components/login.vue'
 import account from '../components/account.vue'
-import create from '../components/create.vue'
-import list from '../components/list.vue'
+import axios from '../components/axios.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name:'login',
+    component: login,
+  },
+  {
+    path: '/login',
     name: 'login',
     component: login,
   },
@@ -18,16 +22,17 @@ const routes = [
     path: '/account',
     name: 'account',
     component: account,
+    beforeEnter: (to, from, next) => {
+        var user_data = sessionStorage.getItem('user_data');
+        if (!user_data) next('/login');
+        next()
+    }
   },
   {
-    path:'/create',
-    name: 'create',
-    component: create,
-  },
-  {
-    path:'/list',
-    name:'list',
-    component: list,
+    path: '/axios',
+    name: 'axios',
+    component: axios,
+  
   }
 ]
 
@@ -36,6 +41,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
 
 
 export default router

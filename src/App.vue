@@ -1,11 +1,17 @@
 <template>
   <v-app class="main styled-background" style="--background-image:url('/login-bg.svg')">
-    <router-view></router-view>
+    <router-view>
+      <create />
+      <list />
+      
+    </router-view>
   </v-app>
 </template>
 
 <script>
-
+import login from './components/login.vue'
+import create from './components/create.vue'
+import list from './components/list.vue'
 
 export default {
   name: 'App',

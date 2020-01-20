@@ -14,7 +14,7 @@
 
             <v-card-text>
               <v-container>
-                <v-row>
+                <v-row class="caca">
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field v-model="editedItem.firstName" label="First Name"></v-text-field>
                   </v-col>
@@ -52,6 +52,7 @@
 
 <script>
 export default {
+  
   data: () => ({
     dialog: false,
     headers: [
@@ -82,30 +83,31 @@ export default {
     }
 }),
 
-  computed: {
+computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "New User" : "Edit User";
+    return this.editedIndex === -1 ? "New User" : "Edit User";
     }
-  },
+},
 
-  watch: {
+watch: {
     dialog(val) {
-      val || this.close();
+    val || this.close();
     }
-  },
+},
 
-  created() {
+created() {
     this.initialize();
-  },
+},
 
 methods: {
     initialize() {
+      
     this.desserts = [
         {
-            firstName: "Maritn",
-            lastName: "Raffa",
-            email: "martin.raffa@gmail.com",
-            Avatar: "taringa.net",
+            firstName: $store.state.user.firstName,
+            lastName:"" ,
+            email:"" ,
+            Avatar:"" ,
         },
         {
             firstName: "Nicolas",
@@ -123,36 +125,41 @@ methods: {
     },
 
     editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialog = true;
+        this.editedIndex = this.desserts.indexOf(item);
+        this.editedItem = Object.assign({}, item);
+        this.dialog = true;
     },
 
     deleteItem(item) {
-      const index = this.desserts.indexOf(item);
-      confirm("Are you sure you want to delete this item?") &&
+        const index = this.desserts.indexOf(item);
+        confirm("Are you sure you want to delete this item?") &&
         this.desserts.splice(index, 1);
     },
 
     close() {
-      this.dialog = false;
-      setTimeout(() => {
+    this.dialog = false;
+    setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
-      }, 300);
+    }, 300);
     },
 
     save() {
-      if (this.editedIndex > -1) {
+    if (this.editedIndex > -1) {
         Object.assign(this.desserts[this.editedIndex], this.editedItem);
-      } else {
+    } else {
         this.desserts.push(this.editedItem);
-      }
-      this.close();
     }
-  }
+    this.close();
+    }
+}
 };
 </script>
 
 <style lang="less" scoped>
+
+
+
+
 </style>
+

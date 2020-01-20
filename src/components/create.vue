@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-8 offset-sm-2">
           <div>
-            <form @submit.prevent="handleSubmit">
+            <form name="formulario" @submit.prevent="handleSubmit">
               <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input
@@ -48,6 +48,20 @@
                 <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
                   <span v-if="!$v.user.email.required">Email is required</span>
                   <span v-if="!$v.user.email.email">Email is invalid</span>
+                </div>
+              </div>
+                <div class="form-group">
+                <label for="avatar">Avatar</label>
+                <input
+                  type="avaar"
+                  v-model="user.avatar"
+                  id="avatar"
+                  name="avatar"
+                  class="form-control"
+                />
+                <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
+                  <span v-if="!$v.user.password.required">Password is required</span>
+                  <span v-if="!$v.user.password.minLength">Password must be at least 6 characters</span>
                 </div>
               </div>
               <div class="form-group">
@@ -105,11 +119,15 @@ export default {
         firstName: "",
         lastName: "",
         email: "",
+        avatar:"",
         password: "",
         confirmPassword: ""
       },
       submitted: false
     };
+  },
+  mounted() {
+    this.$emit('user',this.user);
   },
   validations: {
     user: {
@@ -123,7 +141,12 @@ export default {
   methods: {
     resetForm: function(i) {
       i.preventDefault();
-      this.$data.user = "";
+      this.$data.user.email = "";
+      this.$data.user.firstName = "";
+      this.$data.user.lastName = "";
+      this.$data.user.avatar = "";
+      this.$data.user.password = "";
+      this.$data.user.confirmPassword = "";
     },
     handleSubmit(e) {
       this.submitted = true;
